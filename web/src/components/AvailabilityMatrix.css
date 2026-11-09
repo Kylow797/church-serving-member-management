@@ -1,0 +1,40 @@
+.mx-tools { display: flex; gap: 10px 14px; align-items: center; flex-wrap: wrap; padding: 10px 12px; border-bottom: 1px solid var(--ink); }
+.mx-tools .field { max-width: 240px; }
+.mx .scroll-x { max-height: 70vh; overflow-y: auto; }
+.mx-t { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 13px; }
+.mx-t th, .mx-t td { border-bottom: 1px solid var(--hair); border-right: 1px solid var(--hair); padding: 0; text-align: center; background: var(--sheet); }
+.mx-t thead th { position: sticky; top: 0; z-index: 2; background: var(--paper-2); border-bottom: 1px solid var(--ink); padding: 6px 4px; min-width: 64px; font-weight: 500; }
+.mx-t thead th .mono { display: block; font-size: 11px; letter-spacing: 0.04em; }
+.mx-t thead th .n { display: block; font-family: var(--font-mono); font-size: 10px; color: var(--ink-3); }
+.mx-t .who { position: sticky; left: 0; z-index: 1; text-align: left; min-width: 140px; padding: 0 10px; background: var(--sheet); border-right: 1px solid var(--ink); font-weight: 600; white-space: nowrap; }
+.mx-t thead .who { z-index: 3; background: var(--paper-2); }
+.mx-t tbody .who { display: table-cell; }
+.mx-t tbody .who span { margin-right: 6px; }
+.mx-t .tot { min-width: 40px; padding: 0 6px; color: var(--ink-2); }
+.mx-t .x { background-image: var(--hatch); }
+.mx-t .c { width: 100%; min-width: 64px; height: 38px; background: transparent; border: 0; cursor: pointer; font-family: var(--font-mono); font-weight: 700; font-size: 13px; }
+.mx-t .c:hover { background: var(--paper-2); }
+.mx-t .c.on { background: var(--ink); color: var(--paper); }
+.mx-t .c.on:hover { background: var(--signal); color: var(--signal-ink); }
+.mx-t .none { padding: 16px; }
+
+/* Header row: every header cell (Person, dates, Tot) shares the mono micro-label
+   style and sits on the same bottom line, so "Person" no longer floats above a blank strip. */
+.mx-t thead th {
+  vertical-align: bottom; height: 46px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-2);
+}
+.mx-t thead th .mono { color: var(--ink); font-weight: 600; }
+.mx-t thead th.who { padding: 6px 10px; }
+.mx-t thead th .n { letter-spacing: 0.06em; }
+
+/* Body rows: fixed height whether a cell is ticked or not. The button was inline,
+   so the line box added a baseline gap that varied with content. */
+.mx-t tbody th, .mx-t tbody td { height: 38px; vertical-align: middle; }
+.mx-t .c { display: block; box-sizing: border-box; height: 38px; line-height: 38px; padding: 0; }
+.mx-t tbody .who { line-height: 1; }
+/* Schedule.css's global .who chip is display:flex; keep matrix header cells as table cells
+   so vertical-align applies and PERSON sits on the same bottom line as the dates. */
+.mx-t thead .who { display: table-cell; }
+.mx-t thead .tot { padding: 6px; }

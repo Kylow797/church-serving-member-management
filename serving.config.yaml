@@ -1,0 +1,76 @@
+# Church Serving configuration
+# Edit this file to add/remove people, ministries and roles, then restart the server
+# (or press "Reload config" in /admin). Never change a person's `id` once in use —
+# rename via `name` instead. Removed entries are deactivated, not deleted, so history stays.
+#
+# rank: 1 = newcomer, 2 = regular, 3 = senior
+
+settings:
+  churchName: Grace Community Church
+  timezone: Asia/Kuala_Lumpur
+  adminCode: "1234"
+  availability:
+    openDaysBeforeMonthEnd: 7   # members submit during the last 7 days of the previous month
+    alwaysOpen: false
+
+ministries:
+  - id: worship
+    name: Worship Team
+    seniority:
+      minSenior: 1        # at least one rank-3 member every Saturday
+      maxNewcomers: 3     # no more than three rank-1 members every Saturday
+    roles:
+      - { id: lead_singer, name: Lead Singer, min: 1, max: 1 }
+      - { id: vocalist,    name: Vocalist,    min: 1, max: 2 }
+      - { id: drummer,     name: Drummer,     min: 1, max: 1 }
+      - { id: bassist,     name: Bassist,     min: 1, max: 1 }
+      - { id: keyboardist, name: Keyboardist, min: 1, max: 1 }
+      - { id: guitarist,   name: Guitarist,   min: 1, max: 1 }
+
+  - id: ushering
+    name: Ushering
+    roles:
+      - { id: usher, name: Usher, min: 2, max: 3 }
+
+  - id: tech
+    name: Tech
+    roles:
+      - { id: sound, name: Sound, min: 1, max: 1 }
+      - { id: media, name: Media, min: 1, max: 1 }
+
+people:
+  # --- Worship ---
+  - { id: sarah-tan,     name: Sarah Tan,     rank: 3, roles: [lead_singer, vocalist] }
+  - { id: daniel-wong,   name: Daniel Wong,   rank: 3, roles: [lead_singer, guitarist] }
+  - { id: grace-lee,     name: Grace Lee,     rank: 2, roles: [lead_singer, vocalist] }
+  - { id: joshua-lim,    name: Joshua Lim,    rank: 1, roles: [lead_singer, vocalist] }
+  - { id: rachel-ng,     name: Rachel Ng,     rank: 2, roles: [vocalist] }
+  - { id: hannah-chong,  name: Hannah Chong,  rank: 1, roles: [vocalist] }
+  - { id: priya-nair,    name: Priya Nair,    rank: 2, roles: [vocalist, keyboardist] }
+  - { id: esther-goh,    name: Esther Goh,    rank: 1, roles: [vocalist] }
+  - { id: marcus-yeo,    name: Marcus Yeo,    rank: 3, roles: [drummer] }
+  - { id: aaron-teh,     name: Aaron Teh,     rank: 2, roles: [drummer, usher] }
+  - { id: kevin-ho,      name: Kevin Ho,      rank: 1, roles: [drummer] }
+  - { id: benjamin-ooi,  name: Benjamin Ooi,  rank: 3, roles: [bassist, guitarist] }
+  - { id: ryan-chua,     name: Ryan Chua,     rank: 2, roles: [bassist] }
+  - { id: ethan-koh,     name: Ethan Koh,     rank: 1, roles: [bassist, usher] }
+  - { id: michelle-yap,  name: Michelle Yap,  rank: 3, roles: [keyboardist] }
+  - { id: chloe-tay,     name: Chloe Tay,     rank: 2, roles: [keyboardist, media] }
+  - { id: samuel-raj,    name: Samuel Raj,    rank: 1, roles: [keyboardist] }
+  - { id: jonathan-kok,  name: Jonathan Kok,  rank: 2, roles: [guitarist] }
+  - { id: isaac-loh,     name: Isaac Loh,     rank: 1, roles: [guitarist, sound] }
+
+  # --- Ushering ---
+  - { id: aunty-mei,     name: Mei Ling Chan, rank: 3, roles: [usher] }
+  - { id: david-tan,     name: David Tan,     rank: 3, roles: [usher] }
+  - { id: faith-low,     name: Faith Low,     rank: 2, roles: [usher] }
+  - { id: peter-lau,     name: Peter Lau,     rank: 2, roles: [usher] }
+  - { id: joy-sim,       name: Joy Sim,       rank: 1, roles: [usher] }
+  - { id: caleb-foo,     name: Caleb Foo,     rank: 1, roles: [usher, media] }
+  - { id: ruth-anand,    name: Ruth Anand,    rank: 2, roles: [usher], maxPerMonth: 2 }
+
+  # --- Tech ---
+  - { id: timothy-khoo,  name: Timothy Khoo,  rank: 3, roles: [sound] }
+  - { id: nathan-quek,   name: Nathan Quek,   rank: 2, roles: [sound, media] }
+  - { id: lydia-pang,    name: Lydia Pang,    rank: 2, roles: [media] }
+  - { id: zach-ismail,   name: Zach Ismail,   rank: 1, roles: [media, sound] }

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Serving Roster</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%2314201a'/%3E%3Crect x='3' y='3' width='4' height='4' fill='%23ece9e1'/%3E%3Crect x='9' y='9' width='4' height='4' fill='%23e8590c'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Last-resort fallback: if the bundle fails to load or throws before React
+      // mounts, show the error instead of a blank page.
+      (function () {
+        function show(msg) {
+          var root = document.getElementById('root')
+          if (!root || root.childElementCount) return
+          root.innerHTML = '<div style="max-width:640px;margin:40px auto;padding:12px 16px;border:1px solid #d9480f;border-left-width:6px;font:14px/1.4 ui-monospace,Menlo,monospace;color:#12201a;background:#f4f2ea"><strong style="color:#d9480f">FAULT / APP FAILED TO START</strong><br><span></span><br><br>Reload the page. If this keeps happening, tell an admin.</div>'
+          root.querySelector('span').textContent = msg
+        }
+        window.addEventListener('error', function (e) { show(e.message || 'Script failed to load') }, true)
+        window.addEventListener('unhandledrejection', function (e) { show(String(e.reason && e.reason.message || e.reason)) })
+      })()
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

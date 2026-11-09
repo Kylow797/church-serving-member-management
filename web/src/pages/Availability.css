@@ -1,0 +1,40 @@
+.banner { border: 1px solid var(--ink); background: var(--sheet); border-left: 8px solid var(--ink-3); padding: 12px 14px; display: flex; flex-direction: column; gap: 8px; }
+.banner.open { border-left-color: var(--signal); }
+.banner .b-top { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; justify-content: space-between; }
+.b-msg { font-size: 16px; }
+.b-admin { color: var(--signal); }
+
+.steps { display: grid; gap: 18px; margin-top: 18px; grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 760px) { .steps { grid-template-columns: 320px 1fr; } }
+
+.step { border: 1px solid var(--ink); background: var(--sheet); padding: 0 0 12px; }
+.step > :not(.step-h) { margin-left: 12px; margin-right: 12px; }
+/* .field is width:100%; with the 12px side margins it overflowed the card at 375px */
+.step > .field { display: block; width: calc(100% - 24px); min-width: 0; }
+.step-h { display: flex; gap: 8px; align-items: center; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 800; padding: 8px 12px; background: var(--paper-2); border-bottom: 1px solid var(--ink); margin-bottom: 12px; }
+.step-h .mono { border: 1px solid var(--ink); width: 18px; height: 18px; display: inline-grid; place-items: center; font-size: 10px; }
+.pad { padding: 14px 0; }
+
+.names { list-style: none; padding: 0; margin-top: 10px; margin-bottom: 0; max-height: 300px; overflow-y: auto; border: 1px solid var(--ink); }
+.names li + li { border-top: 1px solid var(--hair); }
+.names button { width: 100%; text-align: left; background: none; border: 0; padding: 10px 10px; min-height: 44px; display: flex; justify-content: space-between; align-items: center; gap: 8px; font-weight: 600; cursor: pointer; }
+.names button:hover { background: var(--paper-2); }
+.names button.on { background: var(--ink); color: var(--paper); }
+.names button.on .rank { color: var(--paper); border-color: var(--paper); background: transparent; }
+.names .none { padding: 12px 10px; }
+
+.who-line { display: flex; gap: 8px; align-items: center; font-size: 18px; margin-bottom: 12px; }
+
+.grid { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); margin-bottom: 0; }
+@media (min-width: 480px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+.cell { width: 100%; height: 100%; background: var(--sheet); border: 0; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); padding: 10px; text-align: left; cursor: pointer; display: grid; grid-template-columns: auto 1fr; grid-template-areas: 'd box' 'l l' 's s'; gap: 2px 8px; align-items: start; min-height: 108px; }
+.cell .d { grid-area: d; font-size: 38px; font-weight: 800; line-height: 1; }
+.cell .box { grid-area: box; justify-self: end; width: 22px; height: 22px; border: 2px solid var(--ink); display: grid; place-items: center; font-family: var(--font-mono); font-weight: 700; font-size: 13px; }
+.cell .label { grid-area: l; }
+.cell .stamp { grid-area: s; justify-self: start; align-self: end; margin-top: 8px; font-size: 9.5px; color: var(--ink-3); }
+.cell.on { background: var(--ink); color: var(--paper); }
+.cell.on .box { background: var(--signal); border-color: var(--signal); color: var(--signal-ink); }
+.cell.on .label { color: var(--hair); }
+.cell.on .stamp { color: var(--paper); }
+.cell:disabled { cursor: not-allowed; opacity: 0.7; }
+.actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 14px; }

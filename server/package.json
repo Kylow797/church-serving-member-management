@@ -1,0 +1,13 @@
+{
+  "name": "church-serving-server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch index.js --dev",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "yaml": "^2.8.0"
+  }
+}
